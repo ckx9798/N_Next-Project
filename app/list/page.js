@@ -13,8 +13,8 @@ export default async function List() {
           <Link href={`/detail/${item._id}`} className="list_link">
             <h4>{item.title}</h4>
             <p>{item.content}</p>
-            {/* <DetailLink /> */}
           </Link>
+          <Link href={`/edit/${item._id}`}>📌 수정하기</Link>
         </div>
       ))}
     </div>

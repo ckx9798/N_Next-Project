@@ -18,12 +18,21 @@ export default function ListItem({ result }) {
               fetch("/api/post/delete", {
                 method: "DELETE",
                 body: result[i]._id,
-              });
+              })
+                .then((r) => {
+                  r.json();
+                })
 
-              // fetch("api/test?name=Kim")   //  query string
+                .then(() => {
+                  e.target.parentElement.style.opacity = 0;
+                  setTimeout(() => {
+                    e.target.parentElement.style.display = "none";
+                  }, 1000);
+                });
             }}
           >
-            🗑삭제하기
+            {" "}
+            🗑삭제하기{" "}
           </div>
         </div>
       ))}

@@ -57,3 +57,8 @@ a {
   text-align: center;
   background-color: antiquewhite;
 }
+
+.list-item {
+  opacity: 1;
+  transition: all 1s;
+}

@@ -14,16 +14,17 @@ export default function ListItem({ result }) {
           <Link href={`/edit/${item._id}`}>📌 수정하기</Link>
           <br></br>
           <div
-            onClick={() => {
+            onClick={(e) => {
               fetch("/api/post/delete", {
                 method: "DELETE",
                 body: result[i]._id,
               });
+
+              // fetch("api/test?name=Kim")   //  query string
             }}
           >
-            🗑asdasd
+            🗑삭제하기
           </div>
-          <div onClick={() => console.log(1)}>asdasd </div>
         </div>
       ))}
     </div>

@@ -8,6 +8,8 @@ export default async function New() {
   return (
     <div className="list-bg">
       <h4> New Item </h4>
+      <h4> New Item </h4>
+      <h4> New Item </h4>
     </div>
   );
 }

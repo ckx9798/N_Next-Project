@@ -1,11 +1,15 @@
 import LoginBtn from "./components/LoginBtn";
 import { connectDB } from "/util/database.js";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import LogOutBtn from "./components/LogOutBtn";
 
 export default async function Home() {
   const db = (await connectDB).db("forum");
   let result = await db.collection("post").find().toArray();
 
+  let session = await getServerSession(authOptions);
   return (
     <>
       <div className="container_column homePage">
@@ -19,7 +23,13 @@ export default async function Home() {
           작성하기
         </Link>
       </div>
-      <LoginBtn />
+      {session ? (
+        <div className="logout_box">
+          {session.user.name} <LogOutBtn />
+        </div>
+      ) : (
+        <LoginBtn />
+      )}
     </>
   );
 }

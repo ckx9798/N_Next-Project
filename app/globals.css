@@ -62,3 +62,21 @@ a {
   opacity: 1;
   transition: all 1s;
 }
+
+.logout_box,
+.login_box {
+  width: 300px;
+  height: auto;
+  background-color: burlywood;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.logout_box button,
+.login_box button {
+  background-color: antiquewhite;
+  border-radius: 20px;
+  border: 1px dotted aqua;
+  margin: 2px, 0;
+}

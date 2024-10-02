@@ -10,6 +10,7 @@ export default function ListItem({ result }) {
           <Link href={`/detail/${item._id}`} className="list_link">
             <h4>{item.title}</h4>
             <p>{item.content}</p>
+            <p>{item.author}</p>
           </Link>
           <Link href={`/edit/${item._id}`}>📌 수정하기</Link>
           <br></br>
@@ -17,7 +18,7 @@ export default function ListItem({ result }) {
             onClick={(e) => {
               fetch("/api/post/delete", {
                 method: "DELETE",
-                body: result[i]._id,
+                body: result[i]._id.toString(),
               })
                 .then((r) => {
                   r.json();
